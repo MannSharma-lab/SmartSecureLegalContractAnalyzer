@@ -33,7 +33,7 @@ public class ContractService {
         return contractRepository.save(contract);
     }
 
-    // ✅ Save full contract object + file
+    // Save full contract object + file
     public Contract saveContract(Contract contract, MultipartFile file) {
         if (file != null && !file.isEmpty()) {
             contract.setFileName(file.getOriginalFilename());
@@ -72,7 +72,7 @@ public class ContractService {
         return contractRepository.findByTitleContainingIgnoreCase(keyword);
     }
 
-    // ✅ Fetch contracts for a specific user
+    //  Fetch contracts for a specific user
     public List<Contract> getContractsByUser(User user) {
         return contractRepository.findByUser(user);
     }

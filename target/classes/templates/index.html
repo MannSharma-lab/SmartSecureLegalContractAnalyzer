@@ -10,7 +10,7 @@
 <div class="container">
     <h1 class="mb-4">Contracts</h1>
 
-    <!-- 🔍 Search Form -->
+    <!-- Search Form -->
     <form method="get" th:action="@{/contracts}" class="row g-2 mb-4">
         <div class="col-md-10">
             <input type="text" class="form-control" name="keyword" placeholder="Search by title..." th:value="${keyword}">
@@ -20,7 +20,7 @@
         </div>
     </form>
 
-    <!-- 📝 Create New Contract -->
+    <!-- Create New Contract -->
     <form th:action="@{/contracts}" method="post" enctype="multipart/form-data" class="border p-4 rounded bg-white shadow-sm mb-4">
         <div class="mb-3">
             <label for="title" class="form-label">Contract Title</label>
@@ -45,7 +45,7 @@
         <button type="submit" class="btn btn-success">Save Contract</button>
     </form>
 
-    <!-- 📄 Table Showing All Contracts -->
+    <!-- Table Showing All Contracts -->
     <table class="table table-bordered table-striped bg-white shadow-sm">
         <thead class="table-light">
         <tr>

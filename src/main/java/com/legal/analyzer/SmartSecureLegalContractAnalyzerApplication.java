@@ -10,6 +10,7 @@ public class SmartSecureLegalContractAnalyzerApplication {
         System.out.println("🚀 Smart Secure Legal Contract Analyzer started!");
     }
 
+    
 	}
 
 

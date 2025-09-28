@@ -1,0 +1,7 @@
+com\legal\analyzer\services\ContractService.class
+com\legal\analyzer\HomeController.class
+com\legal\analyzer\models\User.class
+com\legal\analyzer\models\Contract.class
+com\legal\analyzer\SmartSecureLegalContractAnalyzerApplication.class
+com\legal\analyzer\controllers\ContractController.class
+com\legal\analyzer\repositories\ContractRepository.class

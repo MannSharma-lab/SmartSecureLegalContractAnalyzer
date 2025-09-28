@@ -106,7 +106,7 @@
             <span th:text="${#temporals.format(contract.createdAt, 'dd MMM yyyy hh:mm a')}">29 Jul 2025 03:23 PM</span>
         </p>
 
-        <!-- ✅ Attached file download section -->
+        <!--  Attached file download section -->
         <p><strong>Attached File:</strong>
             <span th:if="${contract.fileName != null}">
                 <a th:href="@{'/files/' + ${contract.fileName}}" th:text="${contract.fileName}" download></a>

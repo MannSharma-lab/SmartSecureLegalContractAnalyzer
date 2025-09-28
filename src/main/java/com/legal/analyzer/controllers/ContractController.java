@@ -25,7 +25,7 @@ public class ContractController {
     @Autowired
     private ContractService contractService;
 
-    // ✅ Web UI - show all contracts or search results
+    //  Web UI - show all contracts or search results
     @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
     public String home(@RequestParam(required = false) String keyword, Model model) {
         List<Contract> contracts;
@@ -39,14 +39,14 @@ public class ContractController {
         return "index";
     }
 
-    // ✅ REST API - return all contracts as JSON
+    // REST API - return all contracts as JSON
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/api")
     @ResponseBody
     public List<Contract> getAllContracts() {
         return contractService.getAllContracts();
     }
 
-    // ✅ Web UI - save contract with file, expiry date, and dummy user
+    // Web UI - save contract with file, expiry date, and dummy user
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public String saveContract(
             @RequestParam("title") String title,
@@ -54,7 +54,6 @@ public class ContractController {
             @RequestParam(value = "file", required = false) MultipartFile file,
             @RequestParam(value = "expiryDate", required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate expiryDate
     ) {
-        // Dummy user (replace later with authenticated user)
         User dummyUser = new User();
         dummyUser.setId(1L);
         dummyUser.setUsername("khushal");
@@ -70,14 +69,14 @@ public class ContractController {
         return "redirect:/contracts";
     }
 
-    // ✅ REST API - save contract from JSON
+    // REST API - save contract from JSON
     @PostMapping(path = "/api", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Contract saveContractApi(@RequestBody Contract contract) {
         return contractService.saveContract(contract);
     }
 
-    // ✅ View single contract
+    //  View single contract
     @GetMapping(value = "/{id}", produces = MediaType.TEXT_HTML_VALUE)
     public String viewContract(@PathVariable Long id, Model model) {
         Contract contract = contractService.getContractById(id).orElse(null);
@@ -85,7 +84,7 @@ public class ContractController {
         return "view";
     }
 
-    // ✅ Update contract
+    //  Update contract
     @PostMapping("/update/{id}")
     public String updateContract(@PathVariable Long id,
                                  @RequestParam String title,
@@ -94,14 +93,14 @@ public class ContractController {
         return "redirect:/contracts/" + id;
     }
 
-    // ✅ Delete contract
+    //  Delete contract
     @PostMapping("/delete/{id}")
     public String deleteContract(@PathVariable Long id) {
         contractService.deleteContract(id);
         return "redirect:/contracts";
     }
 
-    // ✅ Export contract to PDF (with attached file content)
+    //  Export contract to PDF (with attached file content)
     @GetMapping("/{id}/pdf")
     public void exportContractToPdf(@PathVariable Long id, HttpServletResponse response) throws IOException {
         Contract contract = contractService.getContractById(id).orElse(null);
